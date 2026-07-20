@@ -150,8 +150,8 @@ export default function Home() {
         </div>
         <div className="updates-grid reveal">
           <article className="featured-update">
-            <div className="update-image"><img src="/lucas-book-event.webp" alt="Lucas Albuquerque em evento de lançamento de livro" loading="lazy" /><span>Livro</span></div>
-            <div><time>2023</time><h3>Publicação de “Paralisia Cerebral: Uma Visão de Dentro para Fora”</h3><p>Uma obra que apresenta uma vivência pessoal e discute a fisiopatologia da paralisia cerebral.</p><a href={amazonUrl} target="_blank" rel="noreferrer">Conhecer a obra <Arrow /></a></div>
+            <div className="update-image"><img src="/lucas-book-event.webp" alt="Lucas Albuquerque com o neurocientista Miguel Nicolelis em um evento" loading="lazy" /><span>Neurociência</span></div>
+            <div><time>Encontro</time><h3>Encontro com o neurocientista Miguel Nicolelis</h3><p>Registro de um encontro inspirador, que aproxima a pesquisa, a divulgação científica e as referências que marcam minha trajetória.</p><a href={lattesUrl} target="_blank" rel="noreferrer">Conhecer a trajetória <Arrow /></a></div>
           </article>
           <div className="update-list">
             <article><span className="update-icon">◎</span><div><time>2022</time><h3>Graduação em Biomedicina pela Universidade Federal de Pernambuco</h3><a href={lattesUrl} target="_blank" rel="noreferrer">Ver formação <Arrow /></a></div></article>
