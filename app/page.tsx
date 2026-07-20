@@ -17,7 +17,7 @@ const projects = [
 ];
 
 const books = [
-  { image: "/book-paralisia.webp", kicker: "Livro · 2023", title: "Paralisia Cerebral: Uma Visão de Dentro para Fora", copy: "Uma narrativa pessoal acompanhada de uma introdução à fisiopatologia da paralisia cerebral." },
+  { image: "/book-paralisia-atualizada.jpg", kicker: "Livro · 2023", title: "Paralisia Cerebral: Uma Visão de Dentro para Fora", copy: "Uma narrativa pessoal acompanhada de uma introdução à fisiopatologia da paralisia cerebral." },
   { image: "/book-cerebral-palsy.webp", kicker: "Book · 2023", title: "Cerebral Palsy: An Inside Out View", copy: "Edição em inglês da obra publicada por Lucas Albuquerque." },
 ];
 
