@@ -6,9 +6,11 @@ const lattesUrl = "http://lattes.cnpq.br/4723512564485916";
 const amazonUrl = "https://www.amazon.com.br/stores/Lucas-Albuquerque/author/B0BRJS2VXW?ref=ap_rdr&shoppingPortalEnabled=true";
 const fluiUrl = "https://www.instagram.com/fluicreativestudio/";
 const fluiSiteUrl = "https://flui-creative-studio.netlify.app/";
+const professionalInstagramUrl = "https://www.instagram.com/drlucaspcd/";
+const personalInstagramUrl = "https://www.instagram.com/lucas.v.s.a/";
 
 const projects = [
-  { mark: "flui", title: "Flui Creative Studio", text: "Projeto de estúdio criativo. Conheça o projeto e acompanhe os trabalhos e as novidades.", url: fluiSiteUrl, linkLabel: "Acessar projeto", secondaryUrl: fluiUrl, secondaryLabel: "Instagram" },
+  { mark: "flui", title: "Flui Creative Studio", text: "Editor de vídeo criado por mim para tornar a comunicação mais acessível. O projeto gera legendas para vídeos, inclusive de pessoas com dificuldade de dicção, ajudando a tornar a mensagem mais compreensível.", url: fluiSiteUrl, linkLabel: "Acessar projeto", secondaryUrl: fluiUrl, secondaryLabel: "Instagram" },
   { mark: "⌁", title: "Neurociência e paralisia cerebral", text: "Pesquisa em mapeamento cerebral por eletroencefalografia quantitativa em indivíduos com paralisia cerebral.", image: "/lucas-procedure.webp", url: lattesUrl, linkLabel: "Ver no Lattes" },
   { mark: "IA", title: "Engenharia Biomédica e IA", text: "Mestrado sobre uma abordagem híbrida inteligente para estimação de docking molecular entre proteínas.", image: "/lucas-mestrado.webp", url: lattesUrl, linkLabel: "Ver no Lattes" },
   { mark: "MD", title: "Formação médica e inclusão", text: "Vivências na graduação em Medicina e defesa de uma formação em saúde mais inclusiva.", image: "/lucas-medicine.webp", url: lattesUrl, linkLabel: "Ver no Lattes" },
@@ -16,7 +18,7 @@ const projects = [
 
 const books = [
   { image: "/book-paralisia.webp", kicker: "Livro · 2023", title: "Paralisia Cerebral: Uma Visão de Dentro para Fora", copy: "Uma narrativa pessoal acompanhada de uma introdução à fisiopatologia da paralisia cerebral." },
-  { kicker: "Book · 2023", title: "Cerebral Palsy: An Inside Out View", copy: "Edição em inglês da obra publicada por Lucas Albuquerque." },
+  { image: "/book-cerebral-palsy.webp", kicker: "Book · 2023", title: "Cerebral Palsy: An Inside Out View", copy: "Edição em inglês da obra publicada por Lucas Albuquerque." },
 ];
 
 const timeline = [
@@ -182,7 +184,7 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <a className="brand" href="#inicio"><span className="brand-mark">LA</span><span><strong>Lucas Albuquerque</strong><small>Ciência · propósito · impacto</small></span></a>
-          <div className="socials" aria-label="Links profissionais"><a href={lattesUrl} target="_blank" rel="noreferrer" aria-label="Currículo Lattes">CV</a><a href={amazonUrl} target="_blank" rel="noreferrer" aria-label="Livros na Amazon">AM</a></div>
+          <div className="socials" aria-label="Links profissionais"><a href={lattesUrl} target="_blank" rel="noreferrer" aria-label="Currículo Lattes">CV</a><a href={amazonUrl} target="_blank" rel="noreferrer" aria-label="Livros na Amazon">AM</a><a href={professionalInstagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram profissional">IG</a><a href={personalInstagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram pessoal">P</a></div>
           <p>© 2026 Lucas Albuquerque</p>
         </div>
       </footer>
