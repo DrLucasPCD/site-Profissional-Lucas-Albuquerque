@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 
 const lattesUrl = "http://lattes.cnpq.br/4723512564485916";
 const amazonUrl = "https://www.amazon.com.br/stores/Lucas-Albuquerque/author/B0BRJS2VXW?ref=ap_rdr&shoppingPortalEnabled=true";
+const fluiUrl = "https://www.instagram.com/fluicreativestudio/";
+const fluiSiteUrl = "https://flui-creative-studio.netlify.app/";
 
 const projects = [
-  { mark: "⌁", title: "Neurociência e paralisia cerebral", text: "Pesquisa em mapeamento cerebral por eletroencefalografia quantitativa em indivíduos com paralisia cerebral.", image: "/lucas-procedure.webp" },
-  { mark: "IA", title: "Engenharia Biomédica e IA", text: "Mestrado sobre uma abordagem híbrida inteligente para estimação de docking molecular entre proteínas.", image: "/lucas-mestrado.webp" },
-  { mark: "MD", title: "Formação médica e inclusão", text: "Vivências na graduação em Medicina e defesa de uma formação em saúde mais inclusiva.", image: "/lucas-medicine.webp" },
+  { mark: "flui", title: "Flui Creative Studio", text: "Projeto de estúdio criativo. Conheça o projeto e acompanhe os trabalhos e as novidades.", url: fluiSiteUrl, linkLabel: "Acessar projeto", secondaryUrl: fluiUrl, secondaryLabel: "Instagram" },
+  { mark: "⌁", title: "Neurociência e paralisia cerebral", text: "Pesquisa em mapeamento cerebral por eletroencefalografia quantitativa em indivíduos com paralisia cerebral.", image: "/lucas-procedure.webp", url: lattesUrl, linkLabel: "Ver no Lattes" },
+  { mark: "IA", title: "Engenharia Biomédica e IA", text: "Mestrado sobre uma abordagem híbrida inteligente para estimação de docking molecular entre proteínas.", image: "/lucas-mestrado.webp", url: lattesUrl, linkLabel: "Ver no Lattes" },
+  { mark: "MD", title: "Formação médica e inclusão", text: "Vivências na graduação em Medicina e defesa de uma formação em saúde mais inclusiva.", image: "/lucas-medicine.webp", url: lattesUrl, linkLabel: "Ver no Lattes" },
 ];
 
 const books = [
@@ -107,10 +110,10 @@ export default function Home() {
           {projects.map((project, index) => (
             <article className={`project-card ${activeProject === index ? "active" : ""}`} key={project.title} onMouseEnter={() => setActiveProject(index)}>
               <span className="project-number">0{index + 1}</span>
-              <img className="project-image" src={project.image} alt="" loading="lazy" />
+              {project.image && <img className="project-image" src={project.image} alt="" loading="lazy" />}
               <div className={`project-mark mark-${index}`}>{project.mark}</div>
               <h3>{project.title}</h3><p>{project.text}</p>
-              <a href={lattesUrl} target="_blank" rel="noreferrer">Ver no Lattes <Arrow /></a>
+              <div className="project-links"><a href={project.url} target="_blank" rel="noreferrer">{project.linkLabel} <Arrow /></a>{project.secondaryUrl && <a className="secondary-link" href={project.secondaryUrl} target="_blank" rel="noreferrer">{project.secondaryLabel}</a>}</div>
             </article>
           ))}
         </div>
