@@ -2,23 +2,26 @@
 
 import { useEffect, useState } from "react";
 
+const lattesUrl = "http://lattes.cnpq.br/4723512564485916";
+const amazonUrl = "https://www.amazon.com.br/stores/Lucas-Albuquerque/author/B0BRJS2VXW?ref=ap_rdr&shoppingPortalEnabled=true";
+
 const projects = [
-  { mark: "flui", title: "Flui Creative Studio", text: "Comunicação acessível, design com propósito e ideias que fluem." },
-  { mark: "⌁", title: "Pesquisa científica", text: "Estudos em Biomedicina, Neurociência e educação em saúde." },
-  { mark: "◇", title: "Jornada acadêmica", text: "Vivências, aprendizados e bastidores da formação em Medicina." },
+  { mark: "⌁", title: "Neurociência e paralisia cerebral", text: "Pesquisa em mapeamento cerebral por eletroencefalografia quantitativa em indivíduos com paralisia cerebral.", image: "/lucas-procedure.webp" },
+  { mark: "IA", title: "Engenharia Biomédica e IA", text: "Mestrado sobre uma abordagem híbrida inteligente para estimação de docking molecular entre proteínas.", image: "/lucas-mestrado.webp" },
+  { mark: "MD", title: "Formação médica e inclusão", text: "Vivências na graduação em Medicina e defesa de uma formação em saúde mais inclusiva.", image: "/lucas-medicine.webp" },
 ];
 
 const books = [
-  { image: "/book-diagnostico.webp", kicker: "Imaginologia", title: "Diagnóstico por imagem mamária", copy: "Um guia prático para estudantes e profissionais da saúde." },
-  { image: "/book-radiologia.webp", kicker: "Radiologia", title: "Introdução à Radiologia", copy: "Princípios essenciais apresentados de forma clara e aplicada." },
-  { image: "/book-anatomia.webp", kicker: "Anatomia", title: "Atlas de Anatomia Radiológica", copy: "Anatomia humana interpretada por imagens diagnósticas." },
+  { image: "/book-paralisia.webp", kicker: "Livro · 2023", title: "Paralisia Cerebral: Uma Visão de Dentro para Fora", copy: "Uma narrativa pessoal acompanhada de uma introdução à fisiopatologia da paralisia cerebral." },
+  { kicker: "Book · 2023", title: "Cerebral Palsy: An Inside Out View", copy: "Edição em inglês da obra publicada por Lucas Albuquerque." },
 ];
 
 const timeline = [
-  ["1998", "Nascimento e início da jornada"],
-  ["2016", "Graduação em Biomedicina"],
-  ["2024", "Início da graduação em Medicina"],
-  ["Hoje", "Pesquisador, autor e criador de projetos"],
+  ["1999", "Nascimento em 26 de janeiro"],
+  ["2018–2022", "Graduação em Biomedicina pela UFPE"],
+  ["2023–2024", "Especialização em Neurociências pela UFPE"],
+  ["2023–2025", "Mestrado em Engenharia Biomédica pela UFPE"],
+  ["2024–hoje", "Graduação em Medicina pela UNINASSAU Recife"],
 ];
 
 function Arrow() {
@@ -45,14 +48,14 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Lucas Albuquerque — início">
           <span className="brand-mark">LA</span>
-          <span><strong>Lucas Albuquerque</strong><small>Biomédico · Acadêmico de Medicina</small></span>
+          <span><strong>Lucas Albuquerque</strong><small>Biomédico · Mestre em Engenharia Biomédica</small></span>
         </a>
         <nav className={menuOpen ? "main-nav open" : "main-nav"} aria-label="Navegação principal">
           {[["Início","inicio"],["Projetos","projetos"],["Livros","livros"],["Trajetória","trajetoria"],["Currículo","curriculo"],["Atualizações","atualizacoes"],["Contato","contato"]].map(([label,id]) => (
             <a key={id} href={`#${id}`} onClick={closeMenu}>{label}</a>
           ))}
         </nav>
-        <a className="header-cta" href="#contato">Fale comigo</a>
+        <a className="header-cta" href={lattesUrl} target="_blank" rel="noreferrer">Currículo Lattes</a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Abrir menu">
           <span /><span /><span />
         </button>
@@ -60,19 +63,19 @@ export default function Home() {
 
       <section className="hero" id="inicio">
         <div className="hero-copy reveal visible">
-          <p className="eyebrow">Conhecimento que transforma</p>
+          <p className="eyebrow">Biomédico patologista · Mestre em Engenharia Biomédica</p>
           <h1>Ciência, propósito<br />e <em>superação.</em></h1>
-          <p className="lead">Biomédico, acadêmico de Medicina, pesquisador e autor. Transformo desafios em conhecimento e impacto positivo.</p>
+          <p className="lead">Especialista em Neurociências, pesquisador em interface cérebro-máquina e graduando em Medicina. Transformo vivências e pesquisa em conhecimento acessível.</p>
           <div className="actions">
             <a className="button gold" href="#trajetoria">Conheça minha trajetória</a>
-            <a className="button ghost" href="#projetos">Ver projetos</a>
+            <a className="button ghost" href={lattesUrl} target="_blank" rel="noreferrer">Ver currículo Lattes</a>
           </div>
         </div>
         <div className="hero-portrait reveal visible">
           <div className="orbit orbit-one" /><div className="orbit orbit-two" />
           <div className="portrait-glow" />
-          <img src="/lucas-hero.webp" alt="Lucas Albuquerque trabalhando em um notebook" />
-          <p className="floating-note"><span>+8 anos</span> dedicados à ciência</p>
+          <img src="/lucas-portrait.webp" alt="Lucas Albuquerque, graduando em Medicina" />
+          <p className="floating-note"><span>Desde 2018</span> dedicado à ciência</p>
         </div>
         <blockquote className="manifesto reveal visible">
           <span className="quote">“</span>
@@ -86,50 +89,51 @@ export default function Home() {
         <div className="section-intro reveal">
           <p className="eyebrow">Trajetória</p>
           <h2>Uma história de<br />resiliência e conquistas</h2>
-          <p>Desde o nascimento, enfrento desafios que me impulsionaram a buscar conhecimento, inovar e inspirar pessoas. Cada etapa me trouxe até aqui.</p>
-          <a className="text-link" href="#atualizacoes">Conheça minha história <Arrow /></a>
+          <p>Nascido em 26 de janeiro de 1999, construí uma trajetória que une Biomedicina, Neurociências, Engenharia Biomédica e Medicina. A pesquisa e a escrita são meios de ampliar a inclusão e o acesso ao conhecimento.</p>
+          <a className="text-link" href={lattesUrl} target="_blank" rel="noreferrer">Ver currículo completo <Arrow /></a>
         </div>
         <ol className="timeline reveal">
           {timeline.map(([year,text]) => <li key={year}><span className="year">{year}</span><p>{text}</p></li>)}
         </ol>
-        <div className="trajectory-photo reveal"><img src="/lucas-hero.webp" alt="Lucas Albuquerque em seu ambiente de estudo" /></div>
+        <div className="trajectory-photo reveal"><img src="/lucas-graduacao.webp" alt="Lucas Albuquerque em sua cerimônia de graduação em Biomedicina" /></div>
       </section>
 
       <section className="section projects" id="projetos">
         <div className="section-heading reveal">
           <div><p className="eyebrow">Projetos em destaque</p><h2>Ideias que saem<br />do papel</h2></div>
-          <p>Projetos que unem tecnologia, criatividade, educação e impacto social.</p>
+          <p>Pesquisa, engenharia biomédica e formação médica orientadas pela ciência, inovação e inclusão.</p>
         </div>
         <div className="project-grid reveal">
           {projects.map((project, index) => (
             <article className={`project-card ${activeProject === index ? "active" : ""}`} key={project.title} onMouseEnter={() => setActiveProject(index)}>
               <span className="project-number">0{index + 1}</span>
+              <img className="project-image" src={project.image} alt="" loading="lazy" />
               <div className={`project-mark mark-${index}`}>{project.mark}</div>
               <h3>{project.title}</h3><p>{project.text}</p>
-              <a href="#contato">Saiba mais <Arrow /></a>
+              <a href={lattesUrl} target="_blank" rel="noreferrer">Ver no Lattes <Arrow /></a>
             </article>
           ))}
         </div>
-        <a className="text-link centered" href="#contato">Ver todos os projetos <Arrow /></a>
+        <a className="text-link centered" href={lattesUrl} target="_blank" rel="noreferrer">Ver produções no Lattes <Arrow /></a>
       </section>
 
       <section className="section books" id="livros">
         <div className="section-heading reveal">
           <div><p className="eyebrow">Livros</p><h2>Conhecimento<br />para levar com você</h2></div>
-          <p>Obras construídas para tornar conteúdos complexos mais claros, próximos e acessíveis.</p>
+          <p>Obras autorais que aproximam ciência, vivência e inclusão. Disponíveis na loja oficial do autor.</p>
         </div>
         <div className="book-grid reveal">
           {books.map((book) => (
             <article className="book-card" key={book.title}>
-              <div className="book-cover"><img src={book.image} alt={`Capa do livro ${book.title}`} loading="lazy" /></div>
-              <div className="book-info"><span>{book.kicker}</span><h3>{book.title}</h3><p>{book.copy}</p><a className="button small gold" href="#contato">Comprar agora</a></div>
+              <div className={book.image ? "book-cover" : "book-cover book-placeholder"}>{book.image ? <img src={book.image} alt={`Capa do livro ${book.title}`} loading="lazy" /> : <span>Cerebral<br />Palsy<br /><i>an inside out view</i></span>}</div>
+              <div className="book-info"><span>{book.kicker}</span><h3>{book.title}</h3><p>{book.copy}</p><a className="button small gold" href={amazonUrl} target="_blank" rel="noreferrer">Ver na Amazon</a></div>
             </article>
           ))}
         </div>
       </section>
 
       <section className="metrics section reveal" aria-label="Indicadores profissionais">
-        {[ ["02","graduações"],["03","livros publicados"],["12+","artigos e publicações"],["5 mil+","pessoas impactadas"] ].map(([number,label]) => (
+        {[ ["03","formações concluídas"],["02","livros publicados"],["06+","apresentações em eventos"],["2024","Medicina em curso"] ].map(([number,label]) => (
           <div key={label}><strong>{number}</strong><span>{label}</span></div>
         ))}
       </section>
@@ -137,40 +141,45 @@ export default function Home() {
       <section className="section updates" id="atualizacoes">
         <div className="section-heading reveal">
           <div><p className="eyebrow">Atualizações</p><h2>O que está<br />acontecendo agora</h2></div>
-          <a className="text-link" href="#contato">Ver todas as atualizações <Arrow /></a>
+          <a className="text-link" href={lattesUrl} target="_blank" rel="noreferrer">Ver produção completa <Arrow /></a>
         </div>
         <div className="updates-grid reveal">
           <article className="featured-update">
-            <div className="update-image"><img src="/lucas-wide.webp" alt="Lucas trabalhando em uma pesquisa" loading="lazy" /><span>Artigo</span></div>
-            <div><time>18 jul. 2026</time><h3>Neuroplasticidade e reabilitação: caminhos que conectam ciência e vida</h3><p>Um olhar sobre como o cérebro se adapta e cria novas possibilidades.</p><a href="#contato">Ler artigo <Arrow /></a></div>
+            <div className="update-image"><img src="/lucas-book-event.webp" alt="Lucas Albuquerque em evento de lançamento de livro" loading="lazy" /><span>Livro</span></div>
+            <div><time>2023</time><h3>Publicação de “Paralisia Cerebral: Uma Visão de Dentro para Fora”</h3><p>Uma obra que apresenta uma vivência pessoal e discute a fisiopatologia da paralisia cerebral.</p><a href={amazonUrl} target="_blank" rel="noreferrer">Conhecer a obra <Arrow /></a></div>
           </article>
           <div className="update-list">
-            <article><span className="update-icon">◎</span><div><time>10 jul. 2026</time><h3>Palestra sobre inclusão e acessibilidade na saúde</h3><a href="#contato">Ver detalhes <Arrow /></a></div></article>
-            <article><span className="update-icon">✦</span><div><time>26 jun. 2026</time><h3>Nova etapa na pesquisa acadêmica</h3><a href="#contato">Acompanhar <Arrow /></a></div></article>
-            <article><span className="update-icon">□</span><div><time>08 jun. 2026</time><h3>Bastidores da escrita do próximo livro</h3><a href="#contato">Saiba mais <Arrow /></a></div></article>
+            <article><span className="update-icon">◎</span><div><time>2022</time><h3>Graduação em Biomedicina pela Universidade Federal de Pernambuco</h3><a href={lattesUrl} target="_blank" rel="noreferrer">Ver formação <Arrow /></a></div></article>
+            <article><span className="update-icon">✦</span><div><time>2024</time><h3>Conclusão da especialização em Neurociências pela UFPE</h3><a href={lattesUrl} target="_blank" rel="noreferrer">Ver formação <Arrow /></a></div></article>
+            <article><span className="update-icon">□</span><div><time>2025</time><h3>Mestrado em Engenharia Biomédica concluído na UFPE</h3><a href={lattesUrl} target="_blank" rel="noreferrer">Ver formação <Arrow /></a></div></article>
           </div>
+        </div>
+        <div className="photo-story reveal" aria-label="Momentos da trajetória de Lucas Albuquerque">
+          <figure><img src="/lucas-laptop.webp" alt="Lucas Albuquerque em atividade acadêmica" loading="lazy" /><figcaption>Pesquisa e estudo</figcaption></figure>
+          <figure><img src="/lucas-conference.webp" alt="Lucas Albuquerque em evento científico" loading="lazy" /><figcaption>Eventos científicos</figcaption></figure>
+          <figure><img src="/lucas-medicine.webp" alt="Lucas Albuquerque em sua formação médica" loading="lazy" /><figcaption>Formação em Medicina</figcaption></figure>
         </div>
       </section>
 
       <section className="section resume" id="curriculo">
         <div className="resume-heading reveal"><p className="eyebrow">Currículo</p><h2>Ciência se faz com<br /><em>curiosidade e constância.</em></h2></div>
         <div className="resume-grid reveal">
-          {[ ["01","Formação acadêmica","Biomedicina e graduação em Medicina"],["02","Experiência profissional","Pesquisa, educação e comunicação"],["03","Publicações e artigos","Produção científica e livros"],["04","Certificações e cursos","Aprendizado contínuo e multidisciplinar"] ].map(([number,title,text]) => (
+          {[ ["01","Formação acadêmica","Biomedicina (UFPE), Neurociências (UFPE), Engenharia Biomédica (UFPE) e Medicina em andamento"],["02","Pesquisa","Interface cérebro-máquina, eletroencefalografia quantitativa, IA e docking molecular"],["03","Publicações","Dois livros publicados e produções apresentadas em congressos"],["04","Experiência","Estágio no Hospital das Clínicas da UFPE/Ebserh e formação continuada em saúde"] ].map(([number,title,text]) => (
             <article key={title}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>
           ))}
         </div>
-        <a className="button gold" href="mailto:contato@lucasalbuquerque.com.br?subject=Solicitação de currículo">Solicitar currículo em PDF</a>
+        <div className="resume-actions"><a className="button gold" href="/curriculo-lattes-lucas-albuquerque.pdf" target="_blank" rel="noreferrer">Baixar currículo Lattes</a><a className="button ghost" href={lattesUrl} target="_blank" rel="noreferrer">Abrir no CNPq</a></div>
       </section>
 
       <footer className="footer" id="contato">
         <div className="footer-main reveal">
-          <p className="eyebrow">Vamos conversar?</p>
-          <h2>Boas ideias começam<br />com uma <em>conversa.</em></h2>
-          <a className="email-link" href="mailto:contato@lucasalbuquerque.com.br">contato@lucasalbuquerque.com.br <Arrow /></a>
+          <p className="eyebrow">Acompanhe o trabalho</p>
+          <h2>Conhecimento que<br />gera <em>impacto.</em></h2>
+          <a className="email-link" href={amazonUrl} target="_blank" rel="noreferrer">Conheça os livros na Amazon <Arrow /></a>
         </div>
         <div className="footer-bottom">
           <a className="brand" href="#inicio"><span className="brand-mark">LA</span><span><strong>Lucas Albuquerque</strong><small>Ciência · propósito · impacto</small></span></a>
-          <div className="socials" aria-label="Redes sociais"><a href="#contato" aria-label="Instagram">ig</a><a href="#contato" aria-label="LinkedIn">in</a><a href="#contato" aria-label="YouTube">yt</a></div>
+          <div className="socials" aria-label="Links profissionais"><a href={lattesUrl} target="_blank" rel="noreferrer" aria-label="Currículo Lattes">CV</a><a href={amazonUrl} target="_blank" rel="noreferrer" aria-label="Livros na Amazon">AM</a></div>
           <p>© 2026 Lucas Albuquerque</p>
         </div>
       </footer>
