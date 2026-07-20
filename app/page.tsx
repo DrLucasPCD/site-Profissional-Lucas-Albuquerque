@@ -184,7 +184,7 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <a className="brand" href="#inicio"><span className="brand-mark">LA</span><span><strong>Lucas Albuquerque</strong><small>Ciência · propósito · impacto</small></span></a>
-          <div className="socials" aria-label="Links profissionais"><a href={lattesUrl} target="_blank" rel="noreferrer" aria-label="Currículo Lattes">CV</a><a href={amazonUrl} target="_blank" rel="noreferrer" aria-label="Livros na Amazon">AM</a><a href={professionalInstagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram profissional">IG</a><a href={personalInstagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram pessoal">P</a></div>
+          <div className="socials" aria-label="Links profissionais"><a href={lattesUrl} target="_blank" rel="noreferrer" aria-label="Currículo Lattes">Lattes</a><a href={amazonUrl} target="_blank" rel="noreferrer" aria-label="Livros na Amazon">Amazon</a><a href={professionalInstagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram profissional">Instagram profissional</a><a href={personalInstagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram pessoal">Instagram pessoal</a></div>
           <p>© 2026 Lucas Albuquerque</p>
         </div>
       </footer>
